@@ -1,0 +1,22 @@
+{
+  "name": "npm-pkg-template",
+  "version": "1.0.0",
+  "description": "工具函数",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/index.js --out-dir lib"
+  },
+  "keywords": [
+    "npm-pkg-template"
+  ],
+  "author": "wuhan",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@bj-nsc/create-nsc-component": "^1.0.22"
+  },
+  "dependencies": {}
+}
