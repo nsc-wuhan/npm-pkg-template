@@ -1,5 +1,5 @@
 {
-  "name": "npm-pkg-template",
+  "name": "@bj-nsc/sm2",
   "version": "1.0.0",
   "description": "工具函数",
   "main": "lib/index.js",
@@ -8,7 +8,7 @@
     "build": "babel src/index.js --out-dir lib"
   },
   "keywords": [
-    "npm-pkg-template"
+    "@bj-nsc/sm2"
   ],
   "author": "wuhan",
   "license": "MIT",
