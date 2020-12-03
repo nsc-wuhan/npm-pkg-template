@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.less";
 import sm2Obj from "@bj-nsc/sm2";
 // import sm2 from "sm2";
-const { KJUR, sm2Encrypt } = sm2;
+// const { KJUR, sm2Encrypt } = sm2;
 console.log("sm2Obj", sm2Obj);
 export default () => {
   const SM2PublicKey =

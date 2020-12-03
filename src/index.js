@@ -10,7 +10,7 @@ function SM2Cipher(a) {
   this.keyOff = 0;
   this.cipherMode = "undefined" != typeof a ? a : SM2CipherMode.C1C3C2;
 }
-(function (global, undefined) {
+export default (function (global, undefined) {
   "use strict";
   var SM2CipherMode = {
     C1C2C3: 0,
@@ -4416,7 +4416,7 @@ function SM2Cipher(a) {
   };
 })(myWindow);
 
-function sm2Encrypt(data, publickey, cipherMode) {
+export function sm2Encrypt(data, publickey, cipherMode) {
   cipherMode = cipherMode == 0 ? cipherMode : 1;
   // msg = SM2.utf8tob64(msg);
   var msgData = CryptoJS.enc.Utf8.parse(data);
@@ -4437,20 +4437,6 @@ function sm2Encrypt(data, publickey, cipherMode) {
   var encryptData = cipher.Encrypt(userKey, msgData);
 
   return "04" + encryptData;
-}
-
-function BigInteger(A, B, C) {
-  if (A != null) {
-    if ("number" == typeof A) {
-      this.fromNumber(A, B, C);
-    } else {
-      if (B == null && "string" != typeof A) {
-        this.fromString(A, 256);
-      } else {
-        this.fromString(A, B);
-      }
-    }
-  }
 }
 
 /**
