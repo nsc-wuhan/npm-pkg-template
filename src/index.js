@@ -1,3 +1,5 @@
+import CryptoJS from "crypto-js";
+
 function SM2Cipher(a) {
   this.ct = 1;
   this.sm3c3 = this.sm3keybase = this.p2 = null;
