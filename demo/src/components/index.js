@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.less";
-import SM, { sm2Encrypt } from "@bj-nsc/sm2";
+import { sm2Decrypt } from "@bj-nsc/sm2";
 // import sm2 from "sm2";
 // const { KJUR, sm2Encrypt } = sm2;
 // console.log("sm2Obj", sm2Obj);
@@ -11,12 +11,10 @@ export default () => {
     "04A2B6158A632D34358D4AFD0CC34326F39AF5B7F789BDA2618A63E6A2211143CEFAE5FE2AE26E8DD07581622AEB94CB9EBEE531CB3F364C054CD418594A6997E6B6BA68AF2EE78B19E3090EAE3DFC219BCEFED69DEA7C5A80D93DC2FB726DDDDF61734904743BCB4437";
   const SM2PrivateKey =
     "39EEA5AC0595474659F16BD7ED2C8CE73F335F887EE0E8EA462306CC3B48EEBD";
-  const SM2 = SM.SM2;
-  const rel = SM2.SM2Decrypt(str, SM2PrivateKey);
+  // const SM2 = SM.SM2;
+  const rel = sm2Decrypt(str);
   console.log("rel", rel);
   const test = "yes";
-  const str2 = sm2Encrypt(test, SM2PublicKey);
-  console.log("str2", str2);
   return (
     <div>
       <h1 className={styles.title}>组件样板</h1>

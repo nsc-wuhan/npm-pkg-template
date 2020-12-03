@@ -383,6 +383,9 @@ const SM2PrivateKey =
       }
     },
   };
+
+  var KJUR;
+
   if (typeof KJUR == "undefined" || !KJUR) {
     KJUR = {};
   }
