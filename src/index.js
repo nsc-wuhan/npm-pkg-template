@@ -147,30 +147,39 @@ function myBrowser() {
   }
 }
 var SecureRandom1 = function () {
-    function H(J) {
-      D[C++] ^= J & 255;
-      D[C++] ^= (J >> 8) & 255;
-      D[C++] ^= (J >> 16) & 255;
-      D[C++] ^= (J >> 24) & 255;
-      C >= G && (C -= G);
-    }
-    var F,
-      D,
-      C,
-      G = 256;
-    if (D == null) {
-      D = [];
-      C = 0;
-      var E;
-      if (myBrowser() == "FF" && window.crypto) {
+  function H(J) {
+    D[C++] ^= J & 255;
+    D[C++] ^= (J >> 8) & 255;
+    D[C++] ^= (J >> 16) & 255;
+    D[C++] ^= (J >> 24) & 255;
+    C >= G && (C -= G);
+  }
+  var F,
+    D,
+    C,
+    G = 256;
+  if (D == null) {
+    D = [];
+    C = 0;
+    var E;
+    if (myBrowser() == "FF" && window.crypto) {
+      var B = new ArrayBuffer(32);
+      var I = new Int8Array(B);
+      window.crypto.getRandomValues(I);
+      for (E = 0; E < I.length; ++E) {
+        D[E] = I[E] & 255;
+      }
+    } else {
+      if (myBrowser() == "IE11") {
         var B = new ArrayBuffer(32);
         var I = new Int8Array(B);
-        window.crypto.getRandomValues(I);
+        var A = window.crypto || window.msCrypto;
+        A.getRandomValues(I);
         for (E = 0; E < I.length; ++E) {
           D[E] = I[E] & 255;
         }
       } else {
-        if (myBrowser() == "IE11") {
+        if (myBrowser() == "edge") {
           var B = new ArrayBuffer(32);
           var I = new Int8Array(B);
           var A = window.crypto || window.msCrypto;
@@ -179,65 +188,56 @@ var SecureRandom1 = function () {
             D[E] = I[E] & 255;
           }
         } else {
-          if (myBrowser() == "edge") {
-            var B = new ArrayBuffer(32);
-            var I = new Int8Array(B);
-            var A = window.crypto || window.msCrypto;
-            A.getRandomValues(I);
-            for (E = 0; E < I.length; ++E) {
-              D[E] = I[E] & 255;
-            }
-          } else {
-          }
         }
       }
-      C = 0;
-      H(new Date().getTime());
     }
-    this.nextBytes = function (M) {
-      for (var K = 0; K < M.length; ++K) {
-        var J = M,
-          L = K,
-          N;
-        if (F == null) {
-          H(new Date().getTime());
-          F = new prng_newstate();
-          F.init(D);
-          for (C = 0; C < D.length; ++C) {
-            D[C] = 0;
-          }
-          C = 0;
+    C = 0;
+    H(new Date().getTime());
+  }
+  this.nextBytes = function (M) {
+    for (var K = 0; K < M.length; ++K) {
+      var J = M,
+        L = K,
+        N;
+      if (F == null) {
+        H(new Date().getTime());
+        F = new prng_newstate();
+        F.init(D);
+        for (C = 0; C < D.length; ++C) {
+          D[C] = 0;
         }
-        N = F.next();
-        J[L] = N;
+        C = 0;
       }
-    };
-  },
-  prng_newstate = function () {
-    this.j = this.i = 0;
-    this.S = [];
-    this.init = function (D) {
-      for (var B, C, A = 0; A < 256; ++A) {
-        this.S[A] = A;
-      }
-      for (A = B = 0; A < 256; ++A) {
-        (B = (B + this.S[A] + D[A % D.length]) & 255),
-          (C = this.S[A]),
-          (this.S[A] = this.S[B]),
-          (this.S[B] = C);
-      }
-      this.j = this.i = 0;
-    };
-    this.next = function () {
-      var A;
-      this.i = (this.i + 1) & 255;
-      this.j = (this.j + this.S[this.i]) & 255;
-      A = this.S[this.i];
-      this.S[this.i] = this.S[this.j];
-      this.S[this.j] = A;
-      return this.S[(A + this.S[this.i]) & 255];
-    };
+      N = F.next();
+      J[L] = N;
+    }
   };
+};
+function prng_newstate() {
+  this.j = this.i = 0;
+  this.S = [];
+  this.init = function (D) {
+    for (var B, C, A = 0; A < 256; ++A) {
+      this.S[A] = A;
+    }
+    for (A = B = 0; A < 256; ++A) {
+      (B = (B + this.S[A] + D[A % D.length]) & 255),
+        (C = this.S[A]),
+        (this.S[A] = this.S[B]),
+        (this.S[B] = C);
+    }
+    this.j = this.i = 0;
+  };
+  this.next = function () {
+    var A;
+    this.i = (this.i + 1) & 255;
+    this.j = (this.j + this.S[this.i]) & 255;
+    A = this.S[this.i];
+    this.S[this.i] = this.S[this.j];
+    this.S[this.j] = A;
+    return this.S[(A + this.S[this.i]) & 255];
+  };
+}
 // ECFieldElementFp = function (A, B) {
 //   this.x = B;
 //   this.q = A;
@@ -2831,7 +2831,7 @@ if (rng_pool == null) {
 function rng_get_byte() {
   if (rng_state == null) {
     rng_seed_time();
-    rng_state = prng_newstate();
+    rng_state = new prng_newstate();
     rng_state.init(rng_pool);
     for (rng_pptr = 0; rng_pptr < rng_pool.length; rng_pptr += 1) {
       rng_pool[rng_pptr] = 0;
