@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.less";
-import { sm2Decrypt } from "@bj-nsc/sm2";
+import SM2 from "@bj-nsc/sm2";
 // import sm2 from "sm2";
 // const { KJUR, sm2Encrypt } = sm2;
 // console.log("sm2Obj", sm2Obj);
@@ -12,7 +12,8 @@ export default () => {
   const SM2PrivateKey =
     "39EEA5AC0595474659F16BD7ED2C8CE73F335F887EE0E8EA462306CC3B48EEBD";
   // const SM2 = SM.SM2;
-  const rel = sm2Decrypt(str);
+  console.log("SM2", SM2);
+  const rel = SM2.sm2Decrypt(str);
   console.log("rel", rel);
   const test = "yes";
   return (

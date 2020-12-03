@@ -4745,6 +4745,7 @@ const SM2PrivateKey =
       var N;
       var C = new KJUR.crypto.ECDSA({ curve: "sm2" });
       var H = C.ecparams["n"];
+      var encrypData;
       if (M.compareTo(H.subtract(BigInteger.ONE)) > 0) {
         return undefined;
       }
