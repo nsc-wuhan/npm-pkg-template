@@ -4416,27 +4416,35 @@ function SM2Cipher(a) {
   };
 })(myWindow);
 
-export function sm2Encrypt(data, publickey, cipherMode) {
-  cipherMode = cipherMode == 0 ? cipherMode : 1;
-  // msg = SM2.utf8tob64(msg);
-  var msgData = CryptoJS.enc.Utf8.parse(data);
-
-  msgData = CryptoJS.enc.Base64.stringify(msgData);
-  //在转utf-8
-  msgData = CryptoJS.enc.Utf8.parse(msgData);
-
-  var pubkeyHex = publickey;
-  if (pubkeyHex.length > 64 * 2) {
-    pubkeyHex = pubkeyHex.substr(pubkeyHex.length - 64 * 2);
+export function sm2Encrypt(E, A) {
+  if (E == undefined || A == undefined) {
+    return undefined;
   }
-  var xHex = pubkeyHex.substr(0, 64);
-  var yHex = pubkeyHex.substr(64);
-  var cipher = new SM2Cipher(cipherMode);
-  var userKey = cipher.CreatePoint(xHex, yHex);
-  msgData = cipher.GetWords(msgData.toString());
-  var encryptData = cipher.Encrypt(userKey, msgData);
-
-  return "04" + encryptData;
+  if (E == "" || A == "") {
+    return undefined;
+  }
+  if (A.length != 130) {
+    return undefined;
+  }
+  var F = CryptoJS.enc.Utf8.parse(E);
+  var H = A;
+  var D = H.substr(0, 2);
+  if (D != "04") {
+    return undefined;
+  }
+  if (H.length > 64 * 2) {
+    H = H.substr(H.length - 64 * 2);
+  }
+  var I = H.substr(0, 64);
+  var J = H.substr(64);
+  var C = new SM2Cipher(1);
+  var B = C.CreatePoint(I, J);
+  if (B == undefined) {
+    return undefined;
+  }
+  F = C.GetWords(F.toString());
+  var G = C.Encrypt(B, F);
+  return "04" + G;
 }
 
 /**
