@@ -39,9 +39,10 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@bj-nsc/sm2": "^1.0.3",
+    "@bj-nsc/sm2": "^1.0.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "sm2": "^1.0.1"
   }
 }
