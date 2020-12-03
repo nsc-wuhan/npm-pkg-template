@@ -10,7 +10,7 @@ function SM2Cipher(a) {
   this.keyOff = 0;
   this.cipherMode = "undefined" != typeof a ? a : SM2CipherMode.C1C3C2;
 }
-export default (function (global, undefined) {
+(function (global, undefined) {
   "use strict";
   var SM2CipherMode = {
     C1C2C3: 0,
@@ -4448,3 +4448,5 @@ SM2Utils.encs = function (key, s, cipherMode) {
   }
   return sm2Encrypt(s, key, cipherMode);
 };
+
+export default myWindow;
