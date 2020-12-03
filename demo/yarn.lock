@@ -900,10 +900,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@bj-nsc/sm2@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/@bj-nsc/sm2/download/@bj-nsc/sm2-1.0.2.tgz?cache=0&sync_timestamp=1606905166601&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40bj-nsc%2Fsm2%2Fdownload%2F%40bj-nsc%2Fsm2-1.0.2.tgz#621c0b23d7f58b9465176078162fb7e59c8ab777"
-  integrity sha1-YhwLI9f1i5RlF2B4Fi+35ZyKt3c=
+"@bj-nsc/sm2@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.npm.taobao.org/@bj-nsc/sm2/download/@bj-nsc/sm2-1.0.3.tgz?cache=0&sync_timestamp=1606958834971&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40bj-nsc%2Fsm2%2Fdownload%2F%40bj-nsc%2Fsm2-1.0.3.tgz#f498963d13965f1c3fefd1f9893e635b76e3bb96"
+  integrity sha1-9JiWPROWXxw/79H5iT5jW3bju5Y=
 
 "@types/anymatch@*":
   version "1.3.1"

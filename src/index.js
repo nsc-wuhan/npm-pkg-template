@@ -308,7 +308,7 @@ function pkcs1unpad2(E, F) {
   return D;
 }
 Array.Clear = function (A) {
-  for (elm in A) {
+  for (const elm in A) {
     A[elm] = null;
   }
 };
