@@ -1,5 +1,8 @@
 import CryptoJS from "crypto-js";
 
+var myWindow = window || {};
+myWindow.SM2Utils = {};
+
 function SM2Cipher(a) {
   this.ct = 1;
   this.sm3c3 = this.sm3keybase = this.p2 = null;
@@ -4412,9 +4415,6 @@ function SM2Cipher(a) {
     SM2Decrypt: SM2Decrypt,
   };
 })(myWindow);
-
-var myWindow = window || {};
-myWindow.SM2Utils = {};
 
 function sm2Encrypt(data, publickey, cipherMode) {
   cipherMode = cipherMode == 0 ? cipherMode : 1;
