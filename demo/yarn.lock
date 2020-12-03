@@ -900,10 +900,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@bj-nsc/sm2@^1.0.11":
-  version "1.0.11"
-  resolved "https://registry.npm.taobao.org/@bj-nsc/sm2/download/@bj-nsc/sm2-1.0.11.tgz?cache=0&sync_timestamp=1606978927593&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40bj-nsc%2Fsm2%2Fdownload%2F%40bj-nsc%2Fsm2-1.0.11.tgz#e363ea47ccb43aba9696a18c23c3bd5f49e00bba"
-  integrity sha1-42PqR8y0OrqWlqGMI8O9X0ngC7o=
+"@bj-nsc/sm2@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.npm.taobao.org/@bj-nsc/sm2/download/@bj-nsc/sm2-1.0.12.tgz#856868e5f59576a85ab9aa89da888e5898d337cc"
+  integrity sha1-hWho5fWVdqhauaqJ2oiOWJjTN8w=
   dependencies:
     crypto-js "^4.0.0"
 
