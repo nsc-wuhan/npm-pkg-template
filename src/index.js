@@ -4447,6 +4447,11 @@ function SM2Cipher(a) {
   }
 
   function sm2Decrypt(text, privateKey) {
+    if (typeof text !== "string") {
+      throw Error("参数不是字符串!");
+    }
+
+    if (text.length < 196) return text;
     return SM2Decrypt(text, privateKey || SM2PrivateKey);
   }
 
