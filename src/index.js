@@ -4,7 +4,9 @@ const SM2PublicKey =
 
 const SM2PrivateKey =
   "39EEA5AC0595474659F16BD7ED2C8CE73F335F887EE0E8EA462306CC3B48EEBD";
-var myWindow = window || {};
+
+var myWindow = this || {};
+myWindow.navigator = myWindow.navigator || {};
 myWindow.SM2Utils = {};
 
 function SM2Cipher(a) {
