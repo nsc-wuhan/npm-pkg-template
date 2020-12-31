@@ -1632,6 +1632,11 @@ js-tokens@^4.0.0:
   resolved "https://registry.npm.taobao.org/js-tokens/download/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha1-GSA/tZmR35jjoocFDUZHzerzJJk=
 
+jsbn@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-1.1.0.tgz#b01307cb29b618a1ed26ec79e911f803c4da0040"
+  integrity sha1-sBMHyym2GKHtJux56RH4A8TaAEA=
+
 jsesc@^2.5.1:
   version "2.5.2"
   resolved "https://registry.npm.taobao.org/jsesc/download/jsesc-2.5.2.tgz?cache=0&sync_timestamp=1603891161295&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjsesc%2Fdownload%2Fjsesc-2.5.2.tgz#80564d2e483dacf6e8ef209650a67df3f0c283a4"
@@ -2076,6 +2081,13 @@ slash@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/slash/download/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
   integrity sha1-3lUoUaF1nfOo8gZTVEL17E3eq0Q=
+
+sm-crypto@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/sm-crypto/-/sm-crypto-0.2.1.tgz#40b45067e2dff61a416080d9c557d17f638baa16"
+  integrity sha512-4jtJHwf+KHzv3lUHuuZt4/YD1T+baWOQ+lhCph0kwM/8HvRBhJM0UZoHmxaOaQwKrfY+jIsUYkGEraex3ONeqQ==
+  dependencies:
+    jsbn "^1.1.0"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

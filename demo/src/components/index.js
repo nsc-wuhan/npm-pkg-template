@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./index.less";
 // import SM from "@bj-nsc/sm2";
-import SM from "../../index copy";
+import SM from "../../index";
 
 export default () => {
   const SM2PublicKey =
@@ -13,6 +13,10 @@ export default () => {
   // const SM2 = SM.SM2;
   const rel = SM.SM2.sm2Decrypt(str);
   console.log("rel", rel);
+
+  // 加密
+  const rel2 = SM.SM2.sm2Encrypt("新的加密库测试");
+  console.log("加密结果", rel2);
   return (
     <div>
       <h1 className={styles.title}>组件样板</h1>
